@@ -22,19 +22,31 @@ int main()
 	int testCases;
 	inputFile >> testCases;
 
+	string result = "NO";
+
 	// Process each test case
 	for (int t = 1; t <= testCases; ++t)
 	{
-		int a, b, c;
+		long long n, k, test, minimum;
 		// Reading input
-		inputFile >> a >> b >> c;
+		inputFile >> n >> k;
 
 		// Example computation (you will replace this with actual logic)
 
-		// <your code here...>
+		vector<int> A(n);
 
+		for (auto &x : A)
+		{
+			inputFile >> x;
+		}
+		sort(A.begin(), A.end());
+
+		minimum = A[0];
+
+		test = (minimum * 2) * max(0LL, (long long)(n - 2)) + minimum;
 		// Write the output (example format: Case #t: result)
-		outputFile << "Case #" << t << ": " << "YES" << endl;
+
+		outputFile << "Case #" << t << ": " << (test <= k ? "YES" : "NO") << endl;
 	}
 
 	// Close the files

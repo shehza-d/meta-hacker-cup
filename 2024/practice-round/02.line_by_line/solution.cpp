@@ -2,6 +2,7 @@
 #include <fstream>
 #include <string>
 #include <bits/stdc++.h>
+#include <iomanip>
 
 using namespace std;
 
@@ -19,22 +20,23 @@ int main()
 	}
 
 	// Read number of test cases (example input format)
-	int testCases;
+	long testCases;
 	inputFile >> testCases;
 
 	// Process each test case
 	for (int t = 1; t <= testCases; ++t)
 	{
-		int a, b, c;
+		double n, p, result;
 		// Reading input
-		inputFile >> a >> b >> c;
+		inputFile >> n >> p;
 
 		// Example computation (you will replace this with actual logic)
 
-		// <your code here...>
+		// result = pow(100 * (p / 100), n - 1 / n);
+		result = (100 * pow(p / 100.0, (double)(n - 1) / n));
 
 		// Write the output (example format: Case #t: result)
-		outputFile << "Case #" << t << ": " << "YES" << endl;
+		outputFile << "Case #" << t << ": " << setprecision(10) << result - p << endl;
 	}
 
 	// Close the files
